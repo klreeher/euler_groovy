@@ -1,0 +1,8 @@
+language: groovy
+
+sudo: false
+
+script:
+  - gradle build
+  #- gradle build test
+  #- gradle build sonarqube
