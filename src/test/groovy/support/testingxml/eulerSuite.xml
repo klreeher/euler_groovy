@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Revel Platform e2e" verbose="1" parallel="tests" thread-count="2">
-    <test name="BuildTests" preserve-order="true">
+<suite name="Euler Suite" verbose="1" parallel="tests" thread-count="2">
+    <test name="EulerSuite" preserve-order="true">
         <classes>
             <class name="support.runners.EulerSuite" />
         </classes>

@@ -9,13 +9,9 @@ import org.testng.annotations.BeforeSuite
         dryRun = false,
         features = "src/test/groovy/features/",
         tags = "@build",
-        glue = ["steps", "src/test/groovy/support"]
+        glue = ["src/test/groovy/steps", "src/test/groovy/support"]
 )
 
 class EulerSuite extends AbstractTestNGCucumberTests {
 
-    @BeforeSuite
-    def getAuthToken() {
-        println('we\'ll get the auth token here eventually')
-    }
 }
