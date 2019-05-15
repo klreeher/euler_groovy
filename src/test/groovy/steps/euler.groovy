@@ -1,19 +1,18 @@
 package steps
 
-import cucumber.api.PendingException
-
 this.metaClass.mixin(cucumber.api.groovy.Hooks)
 this.metaClass.mixin(cucumber.api.groovy.EN)
 
 Given(~/^all natural numbers below (\d+)$/) { int limit ->
-    // Write code here that turns the phrase above into concrete actions
-    throw new PendingException()
+    int minimum = 0
+    int maximum = limit
+    // create an instance of the euler class with the bounds prescribed
 }
 When(~/^I list all the multiples of (\d+) or (\d+)$/) { int arg1, int arg2 ->
-    // Write code here that turns the phrase above into concrete actions
-    throw new PendingException()
+    // take in the arguments and pass to the euler instance
 }
 Then(~/^I have the values list:(.+)$/) { List<Integer> expectedMultiples ->
-    // Write code here that turns the phrase above into concrete actions
-    throw new PendingException()
+
+    println(expectedMultiples)
+    // assert that the euler instance returns == the expectedMultiples list
 }
