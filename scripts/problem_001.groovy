@@ -5,43 +5,32 @@
 
  */
 
-
-def getMultiplesOf(Integer start, Integer stop, Integer target){
-    return (start..stop - 1).grep { it % target == 0 }
+static ArrayList<Integer> getMultiplesOf(Integer start, Integer stop, Integer target) {
+    return (start..stop - 1).findAll { it % target == 0 }
 }
 
-def getSumOf(List<Integer> arg1, List<Integer> arg2){
-
-    def sum = (arg1.sum()+arg2.sum())
-
-    if (!arg1.disjoint(arg2)){
-        sum -= (arg1.intersect(arg2).sum())
-    }
-
-    return sum
+static def getSumOf(List<Integer> arg1, List<Integer> arg2) {
+    return (arg1 + arg2).unique().sum()
 }
 
 def targets = [3, 5]
 
-def targetMultiples = targets.collect{
+def targetMultiples = targets.collect {
     getMultiplesOf(1, 10, it)
 }
 
 print(targetMultiples)
-
 
 println($/
             All the natural numbers below 10 that are multiples of 3 or 5: ${targetMultiples}
             The sum of these multiples is ${getSumOf(targetMultiples)}
         /$)
 
-
-def targetMultiples2 = targets.collect{
+def targetMultiples2 = targets.collect {
     getMultiplesOf(1, 1000, it)
 }
 
 print(targetMultiples)
-
 
 println($/
             All the natural numbers below 10 that are multiples of 3 or 5: ${targetMultiples2}
