@@ -4,5 +4,5 @@ sudo: false
 
 script:
   - gradle build
-  #- gradle build test
+  - gradle build test
   #- gradle build sonarqube
