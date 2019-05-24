@@ -1,0 +1,48 @@
+plugins {
+    id 'groovy'
+    id 'java'
+}
+
+group 'euler_groovy'
+version '1.0-SNAPSHOT'
+def cucumberVersion = "+"
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
+test {
+    //disable gradle report
+    reports.html.enabled = true
+    // enable TestNG support (default is JUnit)
+    useTestNG {
+    //    dependsOn 'cleanTest'
+        scanForTestClasses = true
+        useDefaultListeners = true
+        testLogging {
+            showStandardStreams = true
+            exceptionFormat "full"
+            events "passed", "skipped", "failed", "standardOut", "standardError"
+            //removed events: "started",
+        }
+        suites "src/test/groovy/com.euler.test/support/testingxml/eulerSuite.xml"
+    }
+}
+// build passing requires cucumber tests to pass
+//build.dependsOn test
+
+dependencies {
+    implementation 'org.codehaus.groovy:groovy-all:2.3.11'
+
+    testImplementation group: 'org.testng', name: 'testng', version: '6.10'
+    testImplementation "info.cukes:cucumber-groovy:$cucumberVersion"
+    testImplementation "info.cukes:cucumber-testng:$cucumberVersion"
+}
