@@ -3,6 +3,6 @@ language: groovy
 sudo: false
 
 script:
-  - gradle build
-  - gradle build test
+  - ./gradlew build
+  - ./gradlew test
   #- gradle build sonarqube
